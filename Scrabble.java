@@ -2,7 +2,7 @@
  * RUNI version of the Scrabble game.
  */
 public class Scrabble {
-
+	
 	// Note 1: "Class variables", like the five class-level variables declared below,
 	// are global variables that can be accessed by any function in the class. It is
 	// customary to name class variables using capital letters and underline characters.
@@ -48,7 +48,11 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		//// Replace the following statement with your code
+		for (int i = 0; i < NUM_OF_WORDS ; i++) {
+			if (DICTIONARY[i].equals(word)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
