@@ -101,6 +101,7 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) {
+		//hand = "aretiin";
 		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
@@ -113,9 +114,7 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the hand playing loop
-			break;
+			System.out.println(input + " earned " + wordScore(input)+ " points. Score: "+ score + " points\n");// break was here
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -123,6 +122,7 @@ public class Scrabble {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
 	}
+	
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
 	// to end the game. If the user enters any other input, writes an error message.
@@ -143,13 +143,13 @@ public class Scrabble {
 			break;
 		}
 	}
-
+	  
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		////testBuildingTheDictionary();  
 		////testScrabbleScore(); 
-		System.out.println(wordScore("running"));   
-		System.out.println(wordScore("cab"));   
+		 
+		//System.out.println(wordScore("cab"));  // i added
 		////testCreateHands();  
 		////testPlayHands();
 		////playGame();
@@ -178,9 +178,9 @@ public class Scrabble {
 	}
 	public static void testPlayHands() {
 		init();
-		//playHand("ocostrza");
-		//playHand("arbffip");
-		//playHand("aretiin");
+		playHand("ocostrza");
+		playHand("arbffip");
+		playHand("aretiin");
 	}
 }
 //1 = a, 3 = b, 3 = c, 2 = d, 1 = e, 4 = f, 2 = g, 4 = h, 1 = i, 8 = j, 5 = k, 1 = l, 3 = m,
