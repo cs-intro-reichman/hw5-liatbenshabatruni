@@ -72,6 +72,9 @@ public class MyString {
      */
     public static String spacedString(String str) {
         String spacedStr = "";
+        if (str.length()<=1){
+            return str;
+        }
         for (int i = 0; i < str.length()-1; i++) {
             spacedStr +=  str.charAt(i) + " ";
         }
@@ -111,9 +114,9 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
         String newStr = ""; //copy all letters in str2 that aren't in str1
-            for (int i = 0; i < str2.length(); i++) {
-              if (countChar(str1, str2.charAt(i))+(countChar(newStr, str2.charAt(i)))!=(countChar(str2, str2.charAt(i)))){ 
-                newStr += str2.charAt(i); 
+            for (int i = 0; i < str1.length(); i++) {
+              if (countChar(str2, str1.charAt(i))+(countChar(newStr, str1.charAt(i)))!=(countChar(str1, str1.charAt(i)))){ 
+                newStr += str1.charAt(i); 
                 }
             }
              return newStr;
