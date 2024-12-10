@@ -122,12 +122,13 @@ public class Scrabble {
 			if (MyString.subsetOf(input,hand)==false){
 				System.out.println("Invalid word. Try again.");
 				}
-			if (isWordInDictionary(input)&&(MyString.subsetOf(input,hand)==true)) {
+
+			else if (isWordInDictionary(input)&&(MyString.subsetOf(input,hand)==true)) {
 				score += wordScore(input);
 				hand = MyString.remove(hand, input);
 				System.out.println(input + " earned " + wordScore(input)+ " points. Score: "+ score + " points\n");
 			}
-			if (isWordInDictionary(input)==false) {
+			else if (isWordInDictionary(input)==false) {
 				System.out.println("No such word in the dictionary. Try again.");
 			}
 		}
