@@ -113,8 +113,23 @@ public class Scrabble {
 			// Reads the next "token" from the keyboard. A token is defined as a string of 
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
+			
 			String input = in.readString();
-			System.out.println(input + " earned " + wordScore(input)+ " points. Score: "+ score + " points\n");// break was here
+			if (input.equals(".")){
+				//System.out.println("End of hand. Total score: " + score + " points");
+				break;
+			}
+			if (MyString.subsetOf(input,hand)==false){
+				System.out.println("Invalid word. Try again.");
+				}
+			if (isWordInDictionary(input)&&(MyString.subsetOf(input,hand)==true)) {
+				score += wordScore(input);
+				hand = MyString.remove(hand, input);
+				System.out.println(input + " earned " + wordScore(input)+ " points. Score: "+ score + " points\n");
+			}
+			if (isWordInDictionary(input)==false) {
+				System.out.println("No such word in the dictionary. Try again.");
+			}
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -138,9 +153,12 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
-			break;
+			while (input.equals("n")){
+				playHand(createHand());
+			}
+			if (input.equals("e")){
+				break;
+			}
 		}
 	}
 	  
@@ -148,6 +166,11 @@ public class Scrabble {
 		//// Uncomment the test you want to run
 		////testBuildingTheDictionary();  
 		////testScrabbleScore(); 
+		init();
+		playHand("ocostrza");
+		playHand("arbffip");
+		playHand("aretiin");
+
 		 
 		//System.out.println(wordScore("cab"));  // i added
 		////testCreateHands();  

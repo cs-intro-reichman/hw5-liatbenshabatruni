@@ -4,23 +4,23 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
+        /*System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
+        System.out.println(countChar(hello, 'z'));*/
         //System.out.println(spacedString("hello"));
         //// Put your other tests here.
-        System.out.println(subsetOf("sap","space")); //true
-        System.out.println(subsetOf("spa","space")); //true
+        //System.out.println(subsetOf("ocostrza","cost")); //true
+        System.out.println(subsetOf("cost","ocostrza")); //true
         System.out.println(subsetOf("pass","space")); //false
         System.out.println(subsetOf("c","space")); //true
         System.out.println(subsetOf("pass","space")); //false
         //randomStringOfLetters tests
-        System.out.println(randomStringOfLetters(3));
+       /* System.out.println(randomStringOfLetters(3));
         System.out.println(randomStringOfLetters(3));
         System.out.println(randomStringOfLetters(10));
         System.out.println(randomStringOfLetters(25));
         //remove tests
-        System.out.println(remove("meet","committee"));//returns "comit"
+        System.out.println(remove("meet","committee"));//returns "comit"*/
         
     }
 
@@ -55,7 +55,7 @@ public class MyString {
     public static boolean subsetOf(String str1, String str2) {
         //to count the number of letters from str1 are in str2 and if it similar to str1.lenght of higher its true
         for (int i = 0; i < str1.length(); i++) {
-            if (countChar(str2, str1.charAt(i))!=countChar(str1, str1.charAt(i))) {
+            if (countChar(str2, str1.charAt(i))<countChar(str1, str1.charAt(i))) {
                 return false;
             }
         }
