@@ -121,10 +121,11 @@ public class Scrabble {
 	//insertRandomly(char ch, String str)
 	public static String createHand() {
 		int randomLength = 0;
-		randomLength = (int) (Math.random()*(HAND_SIZE-2));
+		randomLength = (int) (Math.random()*(HAND_SIZE));
 		String randomWord = MyString.randomStringOfLetters(randomLength);
 		String newRandomWord = MyString.insertRandomly('a',randomWord);
-		newRandomWord = MyString.insertRandomly('e',randomWord);
+		newRandomWord = MyString.insertRandomly('e',newRandomWord);
+		//System.err.println(newRandomWord);
 		return newRandomWord;
 	}
 	
