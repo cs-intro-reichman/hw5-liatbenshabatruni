@@ -4,11 +4,24 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
+        /*System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
+        System.out.println(countChar(hello, 'z'));*/
+        //System.out.println(spacedString("hello"));
         //// Put your other tests here.
+        //System.out.println(subsetOf("ocostrza","cost")); //true
+        System.out.println(subsetOf("cost","ocostrza")); //true
+        System.out.println(subsetOf("pass","space")); //false
+        System.out.println(subsetOf("c","space")); //true
+        System.out.println(subsetOf("pass","space")); //false
+        //randomStringOfLetters tests
+       /* System.out.println(randomStringOfLetters(3));
+        System.out.println(randomStringOfLetters(3));
+        System.out.println(randomStringOfLetters(10));
+        System.out.println(randomStringOfLetters(25));
+        //remove tests
+        System.out.println(remove("meet","committee"));//returns "comit"*/
+        
     }
 
     /**
@@ -20,8 +33,12 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
-        //// Replace the following statement with your code
-        return 0;
+        int counter = 0; //to count the number of times ch in str
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i)==ch)
+            counter++;
+        }
+        return counter;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -36,8 +53,13 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-         //// Replace the following statement with your code
-        return false;
+        //to count the number of letters from str1 are in str2 and if it similar to str1.lenght of higher its true
+        for (int i = 0; i < str1.length(); i++) {
+            if (countChar(str2, str1.charAt(i))<countChar(str1, str1.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -49,8 +71,16 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        //// Replace the following statement with your code
-        return null;
+        String spacedStr = "";
+        if (str.length()<=1){
+            return str;
+        }
+        for (int i = 0; i < str.length()-1; i++) {
+            spacedStr +=  str.charAt(i) + " ";
+        }
+        spacedStr += str.charAt(str.length()-1);
+        //System.out.println(spacedStr.length());
+        return spacedStr;
     }
   
     /**
@@ -64,8 +94,13 @@ public class MyString {
      * @return a randomly generated string, consisting of 'n' lowercase letters
      */
     public static String randomStringOfLetters(int n) {
-        //// Replace the following statement with your code
-        return null;
+        //// 97-122 in ascii table is the lowercase letters 
+        String randomStr = "";
+        for (int i = 0; i < n; i++) {
+            int randomNum = (int)((Math.random()*25)+97);
+            randomStr += (char) randomNum;
+        }
+        return randomStr;
     }
 
     /**
@@ -78,8 +113,13 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-       //// Replace the following statement with your code
-        return null;
+        String newStr = ""; //copy all letters in str2 that aren't in str1
+            for (int i = 0; i < str1.length(); i++) {
+              if (countChar(str2, str1.charAt(i))+(countChar(newStr, str1.charAt(i)))!=(countChar(str1, str1.charAt(i)))){ 
+                newStr += str1.charAt(i); 
+                }
+            }
+             return newStr;
     }
 
     /**
@@ -95,6 +135,7 @@ public class MyString {
          int randomIndex = (int) (Math.random() * (str.length() + 1));
          // Insert the character at the random index
          String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex);
-         return result;
-    }    
-}
+         return result; 
+        }
+    }
+

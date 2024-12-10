@@ -37,6 +37,7 @@ public class Demo {
 		}
         System.out.println(NUM_OF_WORDS + " words loaded.");
 	}
+
 	
 	// Draws and returns a random word from the dictionary.
 	public static String getRandomWord() {
