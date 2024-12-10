@@ -66,7 +66,7 @@ public class Scrabble {
 		if (word.length()==10){
 			score += 50;
 		}
-		if (contains(word, "runi")){
+		if (MyString.subsetOf("runi", word)){
 			score += 1000;
 		}
 		for (int i = 0; i < word.length(); i++) {
@@ -74,55 +74,13 @@ public class Scrabble {
 		}
 		return score;
 	}
-	//we will use the function we wrote in HW4 for wordscore:
-	public static boolean contains(String str1, String str2) {
-        int i = 0;
-        int j = 0;
-        if (str2.length()==0){
-            return true;
-        }
-        if (str1.length()==0){
-            return false;
-        }
-        if (str1.equals(str2)){
-            return true;
-        }
-        if (str1.length()>str2.length()){
-            while (i < str1.length()) {
-                    if (str1.charAt(i)==str2.charAt(j)){
-                        i++;
-                        j++;
-                        if (str2.length()==j){
-                            return true;
-                    }
-                    }
-                    else {
-                        i++;
-                        j=0;
-                    }
-                }
-            }
-        return false;
-    }
+
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
-	/**
-     * Returns a string of n lowercase letters, selected randomly from 
-     * the English alphabet 'a', 'b', 'c', ..., 'z'. Note that the same
-     * letter can be selected more than once.
-     * 
-     * Example: randomStringOfLetters(3) can return "zoo"
-     * 
-     * @param n - the number of letter to select
-     * @return a randomly generated string, consisting of 'n' lowercase letters
-     */
-	//insertRandomly(char ch, String str)
 	public static String createHand() {
-		int randomLength = 0;
-		randomLength = (int) (Math.random()*(HAND_SIZE));
-		String randomWord = MyString.randomStringOfLetters(randomLength);
+		String randomWord = MyString.randomStringOfLetters((HAND_SIZE-2));
 		String newRandomWord = MyString.insertRandomly('a',randomWord);
 		newRandomWord = MyString.insertRandomly('e',newRandomWord);
 		//System.err.println(newRandomWord);
